@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppLayout from "./layouts/AppLayout.tsx";
 import SearchResults from "./pages/SearchResults.tsx";
 import MovieDetailsCard from "./components/ui/MovieDetailsCard.tsx";
+import Home from "./pages/Home.tsx";
 
 const router = createBrowserRouter([
   {
@@ -9,6 +10,8 @@ const router = createBrowserRouter([
     element: <AppLayout />,
     children: [
       { path: "search", element: <SearchResults /> },
+      { path: "/", element: <Home /> },
+
       { path: "movie/:movieId", element: <MovieDetailsCard /> },
     ],
   },

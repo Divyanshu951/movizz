@@ -1,3 +1,6 @@
+import { MovieDetailsSchema } from "../schema/MovieDetailsSchema";
+import { SearchResultSchema } from "../schema/SearchResultScheme";
+
 const token = import.meta.env.VITE_TMDB_TOKEN;
 
 const BASE_URL = "https://api.themoviedb.org/3";
@@ -10,7 +13,7 @@ const options = {
   },
 };
 
-export async function fetchSearchResult(query: string) {
+export async function fetchSearchResultMovies(query: string) {
   const res = await fetch(
     `${BASE_URL}/search/movie?query=${encodeURIComponent(
       query,
@@ -24,6 +27,17 @@ export async function fetchSearchResult(query: string) {
 
   const data = await res.json();
 
-  // return SearchResultSchema.parse(data);
-  return data;
+  return SearchResultSchema.parse(data);
+}
+
+export async function fetchMovieDetails(id: string) {
+  const res = await fetch(`${BASE_URL}/movie/${id}`, options);
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch search results");
+  }
+
+  const data = await res.json();
+
+  return MovieDetailsSchema.parse(data);
 }
