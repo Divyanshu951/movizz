@@ -1,14 +1,22 @@
-import AppLayout from "./layouts/AppLayout";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import AppLayout from "./layouts/AppLayout.tsx";
+import SearchResults from "./pages/SearchResults.tsx";
+import MovieDetailsCard from "./components/ui/MovieDetailsCard.tsx";
 
-function App() {
-  return (
-    <div className="text-foreground min-h-screen [background:radial-gradient(125%_100%_at_50%_0%,#1E293B_0%,#020617_60%)_#020617]">
-      <AppLayout />
-    </div>
-  );
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+    children: [
+      { path: "search", element: <SearchResults /> },
+      { path: "movie/:movieId", element: <MovieDetailsCard /> },
+    ],
+  },
+]);
+
+export default function App() {
+  return <RouterProvider router={router} />;
 }
-
-export default App;
 
 /*
 data fetching - tanstack 
