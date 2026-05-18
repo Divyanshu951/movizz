@@ -1,63 +1,109 @@
-src/components/ui/MovieDetailsCard.tsx:73:37 - error TS7006: Parameter 'ttl' implicitly has an 'any' type.
+Here is a pristine, professional README template tailored to the Movizz project based on your screenshots and file structure.
 
-73 : title.split(":").map((ttl, i, arr) => (
-~~~
+---
 
-src/components/ui/MovieDetailsCard.tsx:73:42 - error TS7006: Parameter 'i' implicitly has an 'any' type.
+# 🎬 Movizz
 
-73 : title.split(":").map((ttl, i, arr) => (
-~
+**Movizz** is a sleek, highly immersive movie and television discovery application. Designed with a premium, cinematic user interface, it allows users to explore trending titles, search for specific media, and dive deep into detailed metadata, all wrapped in a moody, visually striking dark theme.
 
-src/components/ui/MovieDetailsCard.tsx:73:45 - error TS7006: Parameter 'arr' implicitly has an 'any' type.
+## ✨ Features
 
-73 : title.split(":").map((ttl, i, arr) => (
-~~~
+- **Cinematic UI:** Large, high-resolution backdrops, dynamic typography, and a desaturated-to-color hover aesthetic that mimics the theatrical experience.
+- **Trending Hub:** Instantly toggle between trending Movies and TV Shows on the homepage.
+- **Deep-Dive Details:** Comprehensive media pages displaying overviews, cast/crew info, runtime, release dates, and studio metadata.
+- **Global Command Bar:** A custom, floating bottom navigation and search bar accessible via keyboard shortcuts (`Ctrl + Shift + K`).
+- **Grid Search Results:** Beautifully formatted search result grids complete with user rating badges and pagination.
 
-src/components/ui/MovieDetailsCard.tsx:91:34 - error TS7006: Parameter 'country' implicitly has an 'any' type.
+---
 
-91 {origin_country.map((country) => (
-~~~~~~~
+## 🛠 Tech Stack
 
-src/components/ui/MovieDetailsCard.tsx:102:26 - error TS7006: Parameter 'genre' implicitly has an 'any' type.
+| Category               | Technology                               |
+| ---------------------- | ---------------------------------------- |
+| **Frontend Framework** | React (via Vite)                         |
+| **Language**           | TypeScript                               |
+| **Styling**            | Tailwind CSS (Assumed based on UI/Setup) |
+| **Data Source**        | TMDB API                                 |
+| **Tooling**            | ESLint, Prettier                         |
 
-102 {genres.map((genre, index) => {
-~~~~~
+---
 
-src/components/ui/MovieDetailsCard.tsx:102:33 - error TS7006: Parameter 'index' implicitly has an 'any' type.
+## 📂 Project Structure
 
-102 {genres.map((genre, index) => {
-~~~~~
+Based on the repository architecture, the project is organized for scalability and separation of concerns:
 
-src/pages/Home.tsx:102:13 - error TS2322: Type '{ hidden: { opacity: number; y: number; }; show: { opacity: number; y: number; transition: { type: string; stiffness: number; damping: number; }; }; }' is not assignable to type 'Variants'.
-Property 'show' is incompatible with index signature.
-Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; damping: number; }; }' is not assignable to type 'Variant'.
-Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; damping: number; }; }' is not assignable to type 'TargetAndTransition'.
-Type '{ opacity: number; y: number; transition: { type: string; stiffness: number; damping: number; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues$1 | undefined; }'.
-Types of property 'transition' are incompatible.
-Type '{ type: string; stiffness: number; damping: number; }' is not assignable to type 'Transition<any> | undefined'.
-Type '{ type: string; stiffness: number; damping: number; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
-Type '{ type: string; stiffness: number; damping: number; }' is not assignable to type 'ValueAnimationTransition<any>'.
-Types of property 'type' are incompatible.
-Type 'string' is not assignable to type 'AnimationGeneratorType | undefined'.
+```text
+movizz/
+├── public/                 # Static assets
+├── src/
+│   ├── api/                # API fetching logic (api.ts)
+│   ├── components/         # Reusable UI elements
+│   │   ├── svgs/           # Custom SVG icons and logos
+│   │   └── ui/             # NavBars, Cards, Sliders, etc.
+│   ├── layouts/            # Page wrappers (AppLayout.tsx)
+│   ├── lib/                # Helper utilities (utils.ts)
+│   ├── pages/              # Main route views (Home, SearchResults)
+│   └── schema/             # Data validation/type schemas
+├── .env                    # Environment variables
+├── vite.config.ts          # Vite configuration
+└── tsconfig.json           # TypeScript configuration
 
-102 variants={itemVariants}
-~~~~~~~~
+```
 
-node_modules/motion-dom/dist/index.d.ts:290:5
-290 variants?: Variants;
-~~~~~~~~
-The expected type comes from property 'variants' which is declared here on type 'IntrinsicAttributes & Omit<HTMLMotionProps<"div">, "ref"> & RefAttributes<HTMLDivElement>'
+---
 
-src/pages/SearchResults.tsx:102:28 - error TS7006: Parameter 'item' implicitly has an 'any' type.
+## 🚀 Getting Started
 
-102 {data.results.map((item) => (
-~~~~
+Follow these instructions to set up the project locally.
 
-src/types.ts:1:6 - error TS6196: 'SearchResponseitem' is declared but never used.
+### 1. Clone the repository
 
-1 type SearchResponseitem = {};
-~~~~~~~~~~~~~~~~~~
+```bash
+git clone https://github.com/yourusername/movizz.git
+cd movizz
 
-Found 9 errors.
+```
 
-divya@Div_LOQ MINGW64 ~/vscode/REAL_PROJECTS/movizz (main)
+### 2. Install dependencies
+
+```bash
+npm install
+# or
+yarn install
+
+```
+
+### 3. Environment Variables
+
+Create a `.env` file in the root of your project and add your API credentials (likely from TMDB).
+
+```env
+VITE_API_KEY=your_tmdb_api_key_here
+VITE_BASE_URL=https://api.themoviedb.org/3
+
+```
+
+> **Note:** Make sure your `.env` is added to `.gitignore` so you don't expose your API keys.
+
+### 4. Run the development server
+
+```bash
+npm run dev
+# or
+yarn dev
+
+```
+
+Open your browser and navigate to `http://localhost:5173` to view the application.
+
+---
+
+## ⌨️ Keyboard Shortcuts
+
+- `Ctrl + Shift + K`: Open global search/command palette.
+
+---
+
+## 📜 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
