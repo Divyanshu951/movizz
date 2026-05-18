@@ -1,10 +1,17 @@
 @import "tailwindcss";
 
 :root {
+  --background: #020617;
+  --background-gradient: radial-gradient(
+    125% 100% at 50% 0%,
+    #1e293b 0%,
+    #020617 60%
+  );
+
+  --foreground: #fff;
 }
 
 @theme inline {
-}
-
-.dark {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
 }
