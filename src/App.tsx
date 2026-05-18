@@ -1,4 +1,8 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 import AppLayout from "./layouts/AppLayout.tsx";
 import SearchResults from "./pages/SearchResults.tsx";
 import MovieDetailsCard from "./components/ui/MovieDetailsCard.tsx";
@@ -10,8 +14,8 @@ const router = createBrowserRouter([
     element: <AppLayout />,
     children: [
       { path: "search", element: <SearchResults /> },
-      { path: "/", element: <Home /> },
-
+      { path: "/", element: <Navigate to="/home" replace /> },
+      { path: "/home", element: <Home /> },
       { path: "movie/:movieId", element: <MovieDetailsCard /> },
     ],
   },

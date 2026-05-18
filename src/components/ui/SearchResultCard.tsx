@@ -1,14 +1,15 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import type { SearchItem } from "../../schema/SearchResultScheme";
 
 export default function SearchResultCard({ item }: { item: SearchItem }) {
   const { poster_path, title, release_date, id, vote_average } = item;
-  console.log(item);
 
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const type = searchParams.get("type");
 
   function handleSelection() {
-    navigate(`/movie/${id}`);
+    navigate(`/movie/${id}?type=${type}`);
   }
 
   const year = release_date ? release_date.split("-")[0] : "N/A";

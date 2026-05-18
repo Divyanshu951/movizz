@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import SideNavBar from "./SideNavBar";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { fetchMovieDetails } from "../../api/api";
@@ -16,11 +16,17 @@ export default function MovieDetailsCard() {
 function MovieDetailsContent() {
   const searchParams = useParams();
   const movieId = searchParams.movieId;
+  const [params] = useSearchParams();
+  const type = params.get("type");
+
+  console.log(type);
 
   const { data } = useSuspenseQuery({
     queryKey: ["movieDetails", movieId],
-    queryFn: () => fetchMovieDetails(movieId!),
+    queryFn: () => fetchMovieDetails(movieId!, type!),
   });
+
+  console.log(data);
 
   const {
     backdrop_path,
@@ -34,12 +40,18 @@ function MovieDetailsContent() {
     runtime,
     tagline,
     title,
+    name,
     vote_average,
+    seasons,
+    first_air_date,
   } = data;
+
+  console.log(data);
 
   return (
     <div className="bg-red-100">
       <SideNavBar id={imdb_id!} title={title} />
+
       <img
         src={
           !backdrop_path
@@ -56,13 +68,15 @@ function MovieDetailsContent() {
 
       <div className="absolute inset-0 grid h-screen w-full grid-cols-1 p-10 md:grid-cols-2">
         <h1 className="max-w-[80%] text-8xl font-semibold text-shadow-2xs">
-          {title.split(":").map((ttl, i, arr) => (
-            <span key={i}>
-              {ttl.trim()}
-              {i < arr.length - 1 && ":"}
-              <br />
-            </span>
-          ))}
+          {type === "tv"
+            ? name
+            : title.split(":").map((ttl, i, arr) => (
+                <span key={i}>
+                  {ttl.trim()}
+                  {i < arr.length - 1 && ":"}
+                  <br />
+                </span>
+              ))}
         </h1>
         <div className="text-md max-w-[60%] md:justify-self-end">
           {overview}
@@ -112,17 +126,27 @@ function MovieDetailsContent() {
             </span>
           </div>
           <div className="flex items-center gap-3">
-            <p className="min-w-17.5 text-lg">Time:</p>
+            <p className="min-w-17.5 text-lg">
+              {type === "tv" ? "Total seasons" : "Time"}:
+            </p>
 
             <span className="rounded-full border border-white/80 px-5 py-2 text-sm backdrop-blur-sm">
-              {runtime ? Math.floor(runtime / 60) : "--"} hr{" "}
-              {runtime ? runtime % 60 : "--"} Min
+              {type === "tv" ? (
+                `${seasons.length - 1}`
+              ) : (
+                <>
+                  {runtime ? Math.floor(runtime / 60) : "--"} hr{" "}
+                  {runtime ? runtime % 60 : "--"} Min
+                </>
+              )}
             </span>
           </div>
           <div className="flex items-center gap-3">
-            <p className="min-w-17.5 text-lg">Date:</p>
+            <p className="min-w-17.5 text-lg">
+              {type === "tv" ? "First Air Date" : "Date"}:
+            </p>
             <span className="rounded-full border border-white/80 px-5 py-2 text-sm backdrop-blur-sm">
-              {release_date}
+              {type === "tv" ? first_air_date : release_date}
             </span>
           </div>
         </div>
