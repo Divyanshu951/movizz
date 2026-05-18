@@ -54,7 +54,7 @@ function MovieDetailsContent() {
       <div className="pointer-events-none absolute inset-0 bg-linear-to-l from-black/80 via-transparent to-transparent"></div>
       <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/90 via-transparent to-black/30"></div>
 
-      <div className="absolute inset-0 grid h-screen w-full grid-cols-2 p-10">
+      <div className="absolute inset-0 grid h-screen w-full grid-cols-1 p-10 md:grid-cols-2">
         <h1 className="max-w-[80%] text-8xl font-semibold text-shadow-2xs">
           {title.split(":").map((ttl, i, arr) => (
             <span key={i}>
@@ -64,7 +64,7 @@ function MovieDetailsContent() {
             </span>
           ))}
         </h1>
-        <div className="text-md max-w-[60%] justify-self-end">
+        <div className="text-md max-w-[60%] md:justify-self-end">
           {overview}
           <div className="text-md mt-10 flex max-w-27 justify-center gap-2 rounded-full bg-[#F5C518]/80 py-1 text-black">
             <span className="font-semibold">IMDB</span>
@@ -126,7 +126,7 @@ function MovieDetailsContent() {
             </span>
           </div>
         </div>
-        <div className="self-end justify-self-end rounded-md bg-black p-1 transition-all duration-300 hover:mr-10">
+        <div className="justify-self-end rounded-md bg-black p-1 transition-all duration-300 hover:mr-10 md:self-end">
           <img
             src={`https://image.tmdb.org/t/p/original${poster_path}`}
             alt=""
@@ -134,7 +134,7 @@ function MovieDetailsContent() {
           />
         </div>
       </div>
-      <p className="font-calistoga absolute bottom-40 left-[50%] translate-x-[-50%] text-center text-5xl">
+      <p className="font-calistoga absolute bottom-40 left-[50%] translate-x-[-50%] text-center text-5xl opacity-0 md:opacity-100">
         "{tagline ? tagline : "NA"}"
       </p>
     </div>
