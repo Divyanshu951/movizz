@@ -2,6 +2,10 @@ Here is a pristine, professional README template tailored to the Movizz project 
 
 ---
 
+![alt text](<Screenshot 2026-05-19 052303.png>)
+![alt text](<Screenshot 2026-05-19 052432.png>)
+![alt text](image.png)
+
 # 🎬 Movizz
 
 **Movizz** is a sleek, highly immersive movie and television discovery application. Designed with a premium, cinematic user interface, it allows users to explore trending titles, search for specific media, and dive deep into detailed metadata, all wrapped in a moody, visually striking dark theme.
