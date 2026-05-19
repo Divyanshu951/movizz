@@ -4,6 +4,7 @@ import { cn } from "../lib/utils";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { fetchTrending } from "../api/api";
 import { motion, AnimatePresence } from "framer-motion";
+import MovizzLogo from "../components/svgs/MovizzLogo";
 
 export default function Home() {
   const [trendingType, setTrendingType] = useState<string>("movie");
@@ -54,6 +55,9 @@ export default function Home() {
   return (
     <div className="relative flex min-h-screen w-full flex-col justify-center overflow-hidden bg-[#050505] font-sans text-white selection:bg-yellow-500 selection:text-black">
       {/* Background Text */}
+      <div className="fixed top-15 left-15 size-32">
+        <MovizzLogo />
+      </div>
       <div className="pointer-events-none absolute bottom-[-8%] left-0 z-0 w-full text-center text-[28vw] leading-none font-bold tracking-tighter text-[#151515] uppercase select-none">
         {trendingType === "movie" ? "movies" : "series"}
       </div>
