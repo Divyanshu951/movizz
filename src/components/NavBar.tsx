@@ -32,7 +32,7 @@ export default function NavBar() {
 
   return (
     <div className="fixed bottom-6 left-[50%] z-1001 flex w-[90%] translate-x-[-50%] items-center gap-1 rounded-md bg-black p-1 md:w-150">
-      <div className="flex h-10 items-center justify-center rounded-md bg-[#F5C518] px-4 text-2xl font-bold text-black shadow-lg">
+      <div className="flex h-10 items-center justify-center rounded-sm bg-[#F5C518] px-4 text-2xl font-bold text-black shadow-lg">
         Movizz
       </div>
       <form
@@ -44,7 +44,7 @@ export default function NavBar() {
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="h-full w-full rounded-[3px] border-none bg-[#0b0b0f] px-2 outline-none focus:border-none focus:ring-0 focus:outline-none"
+          className="h-full w-full rounded-[3px] border-none bg-neutral-700 px-2 outline-none focus:border-none focus:ring-0 focus:outline-none"
           placeholder="Search here...(ctrl + shift + k)"
         />
         <button className="flex h-10 min-w-10 cursor-pointer flex-col items-center justify-between rounded-[3px] bg-gray-700 px-2 py-1 text-gray-300 transition-colors duration-300 hover:text-gray-100">

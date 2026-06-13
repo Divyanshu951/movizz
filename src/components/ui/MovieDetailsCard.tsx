@@ -67,7 +67,7 @@ function MovieDetailsContent() {
       <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/90 via-transparent to-black/30"></div>
 
       <div className="absolute inset-0 grid h-screen w-full grid-cols-1 p-10 md:grid-cols-2">
-        <h1 className="max-w-[80%] text-8xl font-semibold text-shadow-2xs">
+        <h1 className="max-w-[80%] text-7xl font-semibold text-shadow-2xs">
           {type === "tv"
             ? name
             : title.split(":").map((ttl, i, arr) => (
@@ -154,7 +154,7 @@ function MovieDetailsContent() {
           <img
             src={`https://image.tmdb.org/t/p/original${poster_path}`}
             alt=""
-            className="h-85 rounded-sm transition-all duration-300 hover:h-150"
+            className="h-85 rounded-sm transition-all duration-300 hover:h-100"
           />
         </div>
       </div>

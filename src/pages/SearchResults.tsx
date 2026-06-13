@@ -3,7 +3,6 @@ import { useSearchParams } from "react-router-dom";
 import { fetchSearchResult } from "../api/api";
 import SearchResultCard from "../components/ui/SearchResultCard";
 import { Suspense, useState } from "react";
-import MovizzLogo from "../components/svgs/MovizzLogo";
 
 export default function SearchResults() {
   const [searchParams] = useSearchParams();
@@ -29,7 +28,7 @@ export default function SearchResults() {
         {type === "movie" ? "movies" : "series"}
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-10 pb-20">
+      <div className="relative z-10 mx-auto max-w-5xl px-6 pt-10 pb-20">
         <div className="mb-14">
           <p className="mb-3 text-sm tracking-[0.3em] text-yellow-500/70 uppercase">
             Search Results
@@ -65,9 +64,7 @@ function SearchContent({ query, type }: { query: string; type: string }) {
 
   return (
     <div className="relative">
-      <div className="fixed top-15 left-15 size-32">
-        <MovizzLogo />
-      </div>
+      <div className="fixed top-15 left-15 size-32">{/* <MovizzLogo /> */}</div>
       <div className="fixed top-1/2 right-6 z-50 -translate-y-1/2">
         <div className="flex flex-col items-center gap-4 rounded-3xl border border-white/10 bg-black/40 p-3 backdrop-blur-xl">
           <button
@@ -99,7 +96,7 @@ function SearchContent({ query, type }: { query: string; type: string }) {
       </div>
 
       <div
-        className={`grid grid-cols-2 gap-6 transition-opacity duration-300 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 ${
+        className={`grid grid-cols-2 gap-6 transition-opacity duration-300 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 ${
           isFetching ? "opacity-70" : "opacity-100"
         }`}
       >
@@ -113,7 +110,7 @@ function SearchContent({ query, type }: { query: string; type: string }) {
 
 function SearchSkeleton() {
   return (
-    <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5">
+    <div className="grid grid-cols-2 gap-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
       {Array.from({ length: 20 }).map((_, index) => (
         <div
           key={index}
