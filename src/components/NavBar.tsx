@@ -1,6 +1,6 @@
 import { Film, Home, SearchIcon, Tv } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { cn } from "../lib/utils";
 
 export default function NavBar() {
@@ -32,9 +32,11 @@ export default function NavBar() {
 
   return (
     <div className="fixed bottom-6 left-[50%] z-1001 flex w-[90%] translate-x-[-50%] items-center gap-1 rounded-md bg-black p-1 md:w-150">
-      <div className="flex h-10 items-center justify-center rounded-sm bg-[#F5C518] px-4 text-2xl font-bold text-black shadow-lg">
-        Movizz
-      </div>
+      <Link to={"/home"}>
+        <div className="flex h-10 items-center justify-center rounded-sm bg-[#F5C518] px-4 text-2xl font-bold text-black shadow-lg">
+          Movizz
+        </div>
+      </Link>
       <form
         className="flex h-10 grow items-center gap-1"
         onSubmit={(e) => handleSubmit(e)}
